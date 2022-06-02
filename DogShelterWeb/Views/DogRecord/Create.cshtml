@@ -1,0 +1,60 @@
+﻿@model DogShelterWeb.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add new dog to the shelter</h1>
+
+<br />
+<form method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Dog_Breed" class="control-label">Dog Breed</label>
+                    <input asp-for="Dog_Breed" class="form-control" />
+                    <span asp-validation-for="Dog_Breed" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateTimeArrived" class="control-label">Date-Time Arrived</label>
+                    <input asp-for="DateTimeArrived" class="form-control" />
+                    <span asp-validation-for="DateTimeArrived" class="text-danger"></span>
+                </div>
+                <br />
+
+                <table>
+                     <div class="btn-group" role="group" aria-label="Basic example">
+                        <tr>
+                            <td><button type="submit" class="btn btn-primary btn-lg" style="width:150px">Create</button></td>
+                            <td>&nbsp;</td>
+                            <td><a asp-controller="DogRecord" asp-action="Index" class="btn btn-primary btn-lg" style="width:150px">Return to DogRecord</a></td>
+                        </tr>
+                    </div>
+                </table>
+
+
+
+
+@*                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+                    <a asp-controller="DogRecord" asp-action="Index" class="btn btn-primary" style="width:150px">Return to DogRecord</a>
+                </div>*@
+            </form>
+        </div>
+    </div>
+</form>
+
+

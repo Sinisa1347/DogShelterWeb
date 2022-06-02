@@ -9,8 +9,8 @@
 
     <div class="row">
         <div class="col-sm">
-            <a asp-controller="DogRecord" asp-action="Add-dogs" class="btn btn-primary">
-                Add new dogs to the list
+           <a asp-controller="DogRecord" asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-square"> </i> Add new dogs to the list
             </a>
         </div>
     </div>
@@ -19,37 +19,71 @@
 
 <div class="table">
     <table class="table table-bordered table-striped" style="width:100%">
-        <thead>
-            <div class="container">
-                <div class="row">
-                <div class="col-4">
-                    Name
-                </div>
-                <div class="col-4">
-                    Age
-                    </div>
-                <div class="col-4">
-                    Date-Time Arrived
-                </div>
-            </div>
-        </thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Dog Breed
+            </th>
+            <th>
+                Date-Time Arrived
+            </th>
+            <th>
 
-        <tbody>
-            @foreach(var obj in Model)
-            {
-                <tr>
-                    <td width="50%">
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                        <div class="col-sm">
                         @obj.Name
-                    </td>
+                    </div>
+                </td>
+
                 <td width="50%">
+                    <div class="col-sm">
                         @obj.Age
-                    </td>
+                    </div>
+                </td>
+
                 <td width="50%">
+                    <div class="col-sm">
+                        @obj.Dog_Breed
+                    </div>
+                </td>
+
+                <td width="50%">
+                    <div class="col-sm">
                         @obj.DateTimeArrived
-                    </td>
-                </tr>
-            }
-        </tbody>
+                    </div>
+                </td>
+
+                <td width="50%">
+                    <div class="col-sm">
+                        <a asp-controller="DogRecord" asp-action="Update" class="btn btn-primary">
+                            Update 
+                        </a>
+                    </div>
+                </td>
+
+                <td width="50%">
+                    <div class="col-sm">
+                        <a asp-controller="DogRecord" asp-action="Delete" class="btn btn-primary">
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
     </table>
 </div>
 
