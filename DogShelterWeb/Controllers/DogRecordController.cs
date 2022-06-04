@@ -50,6 +50,73 @@ namespace DogShelterWeb.Controllers
             return View(category);
         }
 
+        //GET
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var categoryFromDb = _db.Categories.Find(id);
+
+            return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Update(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
+
+
+        }
+
+        //GET
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var categoryFromDb = _db.Categories.Find(id);
+
+            ViewBag.Name = categoryFromDb.Name;
+            ViewBag.Age = categoryFromDb.Age;
+            ViewBag.Dog_Breed = categoryFromDb.Dog_Breed;
+            ViewBag.DateArrived = categoryFromDb.DateArrived;
+
+            return View();
+
+
+        }
+
+        //POST
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        
+        public IActionResult PostDelete(int? id)
+        {
+
+            var rowToRemove=_db.Categories.Find(id);
+            if(id==null || id==0)
+            {
+                return NotFound();
+            }
+
+            _db.Categories.Remove(rowToRemove);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
 
     }
 }

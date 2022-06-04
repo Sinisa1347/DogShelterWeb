@@ -21,6 +21,10 @@
     <table class="table table-bordered table-striped" style="width:100%">
         <tr>
             <th>
+                Id
+            </th>
+            
+            <th>
                 Name
             </th>
             <th>
@@ -40,9 +44,16 @@
             </th>
 
         </tr>
-        @foreach(var obj in Model)
+        @foreach(var obj in Model)// asp-route zna id jer se popunjava red po red ove kolone
         {
             <tr>
+                <td width="50%">
+                    <div class="col-sm">
+                        @obj.Id
+                    </div>
+                </td>
+                
+                
                 <td width="50%">
                         <div class="col-sm">
                         @obj.Name
@@ -69,16 +80,16 @@
 
                 <td width="50%">
                     <div class="col-sm">
-                        <a asp-controller="DogRecord" asp-action="Update" class="btn btn-primary">
-                            Update 
+                        <a asp-controller="DogRecord" asp-action="Edit" asp-route-Id="@obj.Id" class="btn btn-primary" >
+                            <i class="bi bi-pencil-square"></i>Edit
                         </a>
                     </div>
                 </td>
 
                 <td width="50%">
                     <div class="col-sm">
-                        <a asp-controller="DogRecord" asp-action="Delete" class="btn btn-primary">
-                            Delete
+                        <a asp-controller="DogRecord" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-primary">
+                            <i class="bi bi-trash"></i>Delete
                         </a>
                     </div>
                 </td>

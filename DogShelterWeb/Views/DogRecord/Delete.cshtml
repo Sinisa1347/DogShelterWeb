@@ -4,40 +4,35 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Add new dog to the shelter</h1>
+<h1>Delete dog from table </h1>
 
 <br />
 <form method="post">
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form asp-action="PostDelete">
 
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input asp-for="Name"  value=@ViewBag.Name disabled class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="Age" class="control-label"></label>
-                    <input asp-for="Age" class="form-control" />
-                    <span asp-validation-for="Age" class="text-danger"></span>
+                    <input asp-for="Age" value=@ViewBag.Age disabled class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="Dog_Breed" class="control-label">Dog Breed</label>
-                    <input asp-for="Dog_Breed" class="form-control" />
-                    <span asp-validation-for="Dog_Breed" class="text-danger"></span>
+                    <input asp-for="Dog_Breed" value=@ViewBag.Dog_Breed disabled class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="DateArrived" class="control-label">Date Arrived</label>
-                    <input asp-for="DateArrived" class="form-control" />
-                    <span asp-validation-for="DateArrived" class="text-danger"></span>
+                    <input asp-for="DateArrived"  value=@ViewBag.DateArrived disabled class="form-control" />
                 </div>
 
                 <table>
                      <div class="btn-group" role="group" aria-label="Basic example">
                         <tr>
-                            <td><button type="submit" class="btn btn-primary btn-lg" style="width:150px">Create</button></td>
+                            <td><button type="submit" class="btn btn-danger btn-lg" style="width:150px">Delete</button></td>
                             <td>&nbsp;</td>
                             <td><a asp-controller="DogRecord" asp-action="Index" class="btn btn-primary btn-lg" style="width:150px">Return to DogRecord</a></td>
                         </tr>
@@ -48,10 +43,4 @@
         </div>
     </div>
 </form>
-
-@section Scripts
-{
-    <partial name="_ValidationScriptsPartial" />
-}
-
 
