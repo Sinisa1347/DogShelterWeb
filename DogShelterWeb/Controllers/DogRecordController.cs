@@ -45,9 +45,14 @@ namespace DogShelterWeb.Controllers
             {
                 _db.Categories.Add(category);
                 _db.SaveChanges();
+                TempData["success"] = "Category created successfully";
+                
                 return RedirectToAction("Index");
             }
+
             return View(category);
+
+
         }
 
         //GET
@@ -58,6 +63,11 @@ namespace DogShelterWeb.Controllers
                 return NotFound();
             }
             var categoryFromDb = _db.Categories.Find(id);
+
+            ViewBag.Name = categoryFromDb.Name;
+            ViewBag.Age = categoryFromDb.Age;
+            ViewBag.Dog_Breed = categoryFromDb.Dog_Breed;
+            ViewBag.DateArrived = categoryFromDb.DateArrived;
 
             return View();
         }
@@ -72,9 +82,12 @@ namespace DogShelterWeb.Controllers
             {
                 _db.Categories.Update(category);
                 _db.SaveChanges();
+                TempData["success"] = "Category edited successfully";
+                
                 return RedirectToAction("Index");
             }
             return View(category);
+
 
 
         }
@@ -106,16 +119,18 @@ namespace DogShelterWeb.Controllers
         {
 
             var rowToRemove=_db.Categories.Find(id);
+
             if(id==null || id==0)
             {
                 return NotFound();
+                
             }
 
             _db.Categories.Remove(rowToRemove);
             _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
+           
             return RedirectToAction("Index");
-
-
         }
 
     }

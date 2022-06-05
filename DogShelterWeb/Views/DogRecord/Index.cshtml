@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
+
     <h3>This table represent all dogs that are currently being nurtured and all of them are looking for family to be a part of.</h3>
 <br />
 
@@ -20,9 +21,7 @@
 <div class="table">
     <table class="table table-bordered table-striped" style="width:100%">
         <tr>
-            <th>
-                Id
-            </th>
+
             
             <th>
                 Name
@@ -47,11 +46,11 @@
         @foreach(var obj in Model)// asp-route zna id jer se popunjava red po red ove kolone
         {
             <tr>
-                <td width="50%">
+@*                <td width="50%">
                     <div class="col-sm">
                         @obj.Id
                     </div>
-                </td>
+                </td>*@
                 
                 
                 <td width="50%">
@@ -97,5 +96,8 @@
         }
     </table>
 </div>
+
+
+
 
 

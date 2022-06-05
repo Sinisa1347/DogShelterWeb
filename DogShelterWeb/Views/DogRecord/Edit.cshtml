@@ -11,26 +11,25 @@
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
+                    <input asp-for="Name" value=@ViewBag.Name class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Age" class="control-label"></label>
-                    <input asp-for="Age" class="form-control" />
+                    <input asp-for="Age" value=@ViewBag.Age class="form-control" />
                     <span asp-validation-for="Age" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Dog_Breed" class="control-label">Dog Breed</label>
-                    <input asp-for="Dog_Breed" class="form-control" />
+                    <input asp-for="Dog_Breed" value=@ViewBag.Dog_Breed class="form-control" />
                     <span asp-validation-for="Dog_Breed" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="DateArrived" class="control-label">Date Arrived</label>
-                    <input asp-for="DateArrived" class="form-control" />
+                    <input asp-for="DateArrived" value=@ViewBag.DateArrived class="form-control" />
                     <span asp-validation-for="DateArrived" class="text-danger"></span>
                 </div>
 

@@ -10,7 +10,7 @@ namespace DogShelterWeb.Models
         [Required]
         public string Name { get; set; }
         public string Dog_Breed { get; set; }
-        [Range(0,20,ErrorMessage ="Dog's age can't be more than 20 years!")]
+        [Range(0,20,ErrorMessage ="Please enter the age beetwen 0-20")]
         public int Age { get; set; }
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         [DataType(DataType.Date)]
